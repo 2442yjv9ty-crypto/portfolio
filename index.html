@@ -8,7 +8,9 @@
   <meta name="description"
     content="Keerthi Gangidi — Fashion, design and commercial strategy portfolio.">
 
-  <title>Keerthi Gangidi — Portfolio</title>
+  <title>Keerthi Gangidi — Creative Portfolio</title>
+
+  <!-- GOOGLE FONTS -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +20,10 @@
     rel="stylesheet">
 
   <style>
+
+    /* ========================================
+       COLOUR PALETTE
+    ======================================== */
 
     :root {
       --yellow: #F5EFC6;
@@ -48,7 +54,9 @@
       text-decoration: none;
     }
 
-    /* NAVIGATION */
+    /* ========================================
+       NAVIGATION
+    ======================================== */
 
     .navigation {
       position: sticky;
@@ -83,9 +91,14 @@
       letter-spacing: -2px !important;
     }
 
-    /* HERO */
+    /* ========================================
+       HERO — OPENING QUESTION
+    ======================================== */
 
     .hero {
+      position: relative;
+      z-index: 2;
+
       min-height: calc(100svh - 65px);
 
       display: flex;
@@ -93,6 +106,8 @@
       justify-content: space-between;
 
       padding: 5% 4% 3%;
+
+      background: var(--yellow);
     }
 
     .hero-label {
@@ -137,40 +152,30 @@
       white-space: nowrap;
     }
 
-    /* CINEMATIC IMAGE REVEAL */
+    /* ========================================
+       CINEMATIC PINNED IMAGE
+    ======================================== */
 
-    .image-reveal {
+    .cinematic-section {
       position: relative;
-      height: 250vh;
-      background: var(--ivory);
+      height: 200vh;
+      background: var(--black);
     }
 
-    .image-sticky {
+    .cinematic-sticky {
       position: sticky;
       top: 0;
 
-      height: 100vh;
       width: 100%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 100vh;
 
       overflow: hidden;
     }
 
-    .image-frame {
-      position: relative;
+    .cinematic-image {
+      position: absolute;
+      inset: 0;
 
-      width: 65%;
-      height: 65vh;
-
-      overflow: hidden;
-
-      will-change: width, height;
-    }
-
-    .image-frame img {
       width: 100%;
       height: 100%;
 
@@ -180,41 +185,108 @@
       display: block;
     }
 
-    .image-overlay {
+    .cinematic-overlay {
       position: absolute;
       inset: 0;
 
-      background: rgba(0, 0, 0, 0.10);
-
+      background: rgba(0, 0, 0, 0.08);
       pointer-events: none;
     }
 
-    /* INTRODUCTION */
+    /* ========================================
+       BURGUNDY EDITORIAL INTRODUCTION
+    ======================================== */
 
-    .introduction {
-      background: var(--ivory);
-      padding: 120px 8%;
+    .editorial-intro {
+      position: relative;
+      z-index: 5;
+
+      background: var(--burgundy);
+      color: var(--yellow);
+
+      min-height: 100vh;
+
+      padding: 100px 4% 120px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .section-label {
       font-size: 11px;
       letter-spacing: 3px;
-      margin-bottom: 35px;
+      text-transform: uppercase;
     }
 
-    .introduction h2 {
+    .editorial-heading {
       font-family: 'Italiana', serif;
 
+      font-size: clamp(65px, 9vw, 150px);
       font-weight: 400;
-      font-size: clamp(45px, 6vw, 95px);
 
-      line-height: 1.1;
-      max-width: 1100px;
+      line-height: 0.98;
+      letter-spacing: -3px;
+
+      max-width: 1300px;
+
+      margin: 100px 0;
     }
 
-    /* PROJECTS */
+    .editorial-heading em {
+      font-weight: 400;
+    }
+
+    .editorial-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      gap: 40px;
+    }
+
+    .editorial-description {
+      max-width: 460px;
+
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .editorial-number {
+      font-family: 'Italiana', serif;
+      font-size: 80px;
+      line-height: 1;
+    }
+
+    /* ========================================
+       TEXT REVEAL ANIMATION
+    ======================================== */
+
+    .reveal-text {
+      opacity: 0;
+      transform: translateY(60px);
+
+      transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================================
+       SELECTED WORK
+    ======================================== */
 
     .work {
+      position: relative;
+      z-index: 6;
+
+      background: var(--yellow);
+      color: var(--burgundy);
+
       padding: 100px 4%;
     }
 
@@ -329,7 +401,30 @@
       max-width: 220px;
     }
 
-    /* FOOTER */
+    /* ========================================
+       EXPERTISE
+    ======================================== */
+
+    .expertise {
+      background: var(--ivory);
+      padding: 120px 8%;
+    }
+
+    .expertise h2 {
+      font-family: 'Italiana', serif;
+
+      font-weight: 400;
+      font-size: clamp(45px, 6vw, 95px);
+
+      line-height: 1.1;
+      max-width: 1100px;
+
+      margin-top: 35px;
+    }
+
+    /* ========================================
+       FOOTER
+    ======================================== */
 
     footer {
       background: var(--burgundy);
@@ -345,7 +440,7 @@
       font-weight: 400;
 
       line-height: 1;
-      margin-bottom: 100px;
+      margin: 60px 0 100px;
     }
 
     .footer-bottom {
@@ -358,17 +453,19 @@
       font-size: 12px;
     }
 
-    /* MOBILE */
+    /* ========================================
+       MOBILE
+    ======================================== */
 
     @media (max-width: 768px) {
 
       .navigation {
-        padding: 0 5%;
+        padding: 0 4%;
         height: 60px;
       }
 
       .navigation a {
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0;
       }
 
@@ -382,7 +479,7 @@
       }
 
       .hero h1 {
-        font-size: clamp(58px, 13vw, 100px);
+        font-size: clamp(50px, 12vw, 100px);
         letter-spacing: -2px;
       }
 
@@ -391,17 +488,32 @@
         align-items: flex-start;
       }
 
-      .image-reveal {
-        height: 200vh;
+      .cinematic-section {
+        height: 170vh;
       }
 
-      .image-frame {
-        width: 85%;
-        height: 50vh;
+      .cinematic-image {
+        object-position: 58% center;
       }
 
-      .introduction {
-        padding: 90px 5%;
+      .editorial-intro {
+        padding: 80px 5%;
+        min-height: 90vh;
+      }
+
+      .editorial-heading {
+        font-size: clamp(55px, 12vw, 100px);
+        letter-spacing: -2px;
+        margin: 80px 0;
+      }
+
+      .editorial-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .editorial-number {
+        font-size: 60px;
       }
 
       .work {
@@ -420,6 +532,10 @@
         height: 360px;
       }
 
+      .expertise {
+        padding: 90px 5%;
+      }
+
       footer {
         padding: 80px 5% 30px;
       }
@@ -432,9 +548,17 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       html {
         scroll-behavior: auto;
       }
+
+      .reveal-text {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
     }
 
   </style>
@@ -443,7 +567,9 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- ========================================
+       NAVIGATION
+  ======================================== -->
 
   <nav class="navigation" aria-label="Main navigation">
 
@@ -461,7 +587,9 @@
 
   <main id="home">
 
-    <!-- HERO -->
+    <!-- ========================================
+         HERO
+    ======================================== -->
 
     <section class="hero">
 
@@ -491,44 +619,62 @@
 
     </section>
 
-    <!-- CINEMATIC KIIRTI IMAGE -->
+    <!-- ========================================
+         FULL-SCREEN KIIRTI CAMPAIGN
+    ======================================== -->
 
-    <section class="image-reveal" id="image">
+    <section class="cinematic-section" id="image">
 
-      <div class="image-sticky">
+      <div class="cinematic-sticky">
 
-        <div class="image-frame" id="zoomImage">
+        <img
+          src="kiirti-campaign.png"
+          alt="KIIRTI Spring Summer 2027 conceptual fashion campaign"
+          class="cinematic-image"
+        >
 
-          <img
-            src="kiirti-campaign.png"
-            alt="KIIRTI Spring Summer 2027 fashion campaign"
-          >
+        <div class="cinematic-overlay"></div>
 
-          <div class="image-overlay"></div>
+      </div>
 
+    </section>
+
+    <!-- ========================================
+         BURGUNDY EDITORIAL INTRODUCTION
+    ======================================== -->
+
+    <section class="editorial-intro" id="about">
+
+      <div class="section-label reveal-text">
+        01 / THE CREATIVE PROCESS
+      </div>
+
+      <h2 class="editorial-heading reveal-text">
+        AN IDEA<br>
+        IS ONLY<br>
+        <em>THE BEGINNING.</em>
+      </h2>
+
+      <div class="editorial-bottom">
+
+        <p class="editorial-description reveal-text">
+          I explore the intersection of creative thinking,
+          product development and commercial strategy —
+          transforming ideas into considered concepts
+          through research, design and storytelling.
+        </p>
+
+        <div class="editorial-number reveal-text">
+          K.
         </div>
 
       </div>
 
     </section>
 
-    <!-- INTRODUCTION -->
-
-    <section class="introduction" id="about">
-
-      <div class="section-label">
-        01 / AN INTRODUCTION
-      </div>
-
-      <h2>
-        A creative approach to fashion,
-        shaped by design, curiosity
-        and commercial thinking.
-      </h2>
-
-    </section>
-
-    <!-- SELECTED WORK -->
+    <!-- ========================================
+         SELECTED WORK
+    ======================================== -->
 
     <section class="work" id="work">
 
@@ -541,6 +687,8 @@
       </div>
 
       <div class="project-grid">
+
+        <!-- KIIRTI -->
 
         <article class="project">
 
@@ -561,6 +709,8 @@
 
         </article>
 
+        <!-- POMME -->
+
         <article class="project">
 
           <div class="project-image pomme">
@@ -579,6 +729,8 @@
           </div>
 
         </article>
+
+        <!-- WATFORD FC -->
 
         <article class="project">
 
@@ -599,6 +751,8 @@
 
         </article>
 
+        <!-- VINTED -->
+
         <article class="project">
 
           <div class="project-image vinted">
@@ -617,6 +771,8 @@
           </div>
 
         </article>
+
+        <!-- DEEMAK -->
 
         <article class="project">
 
@@ -641,9 +797,11 @@
 
     </section>
 
-    <!-- EXPERTISE -->
+    <!-- ========================================
+         EXPERTISE
+    ======================================== -->
 
-    <section class="introduction" id="expertise">
+    <section class="expertise" id="expertise">
 
       <div class="section-label">
         02 / EXPERTISE
@@ -660,7 +818,9 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- ========================================
+       FOOTER
+  ======================================== -->
 
   <footer id="contact">
 
@@ -687,64 +847,48 @@
 
   </footer>
 
-  <!-- CINEMATIC SCROLL ANIMATION -->
+  <!-- ========================================
+       SCROLL-TRIGGERED TEXT REVEAL
+  ======================================== -->
 
   <script>
 
-    const revealSection = document.querySelector('.image-reveal');
-    const zoomImage = document.getElementById('zoomImage');
+    const revealElements = document.querySelectorAll('.reveal-text');
 
-    let ticking = false;
+    if ('IntersectionObserver' in window) {
 
-    function updateZoom() {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
 
-      const rect = revealSection.getBoundingClientRect();
+          entries.forEach(entry => {
 
-      const scrollDistance =
-        revealSection.offsetHeight - window.innerHeight;
+            if (entry.isIntersecting) {
 
-      const progress = Math.min(
-        Math.max(-rect.top / scrollDistance, 0),
-        1
+              entry.target.classList.add('visible');
+
+              observer.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.15
+        }
       );
 
-      const isMobile = window.innerWidth <= 768;
+      revealElements.forEach(element => {
+        revealObserver.observe(element);
+      });
 
-      const initialWidth = isMobile ? 85 : 65;
-      const initialHeight = isMobile ? 50 : 65;
+    } else {
 
-      const currentWidth =
-        initialWidth + (100 - initialWidth) * progress;
-
-      const currentHeight =
-        initialHeight + (100 - initialHeight) * progress;
-
-      zoomImage.style.width = currentWidth + '%';
-      zoomImage.style.height = currentHeight + 'vh';
-
-      ticking = false;
+      revealElements.forEach(element => {
+        element.classList.add('visible');
+      });
 
     }
-
-    function requestZoomUpdate() {
-
-      if (!ticking) {
-
-        window.requestAnimationFrame(updateZoom);
-
-        ticking = true;
-
-      }
-
-    }
-
-    window.addEventListener('scroll', requestZoomUpdate, {
-      passive: true
-    });
-
-    window.addEventListener('resize', requestZoomUpdate);
-
-    updateZoom();
 
   </script>
 
